@@ -19,6 +19,7 @@
     "angular": "^1.5.7",
     "bootstrap": "^3.3.6",
     "angular-ui-router": "^0.3.1",
-    "satellizer": "^0.14.1"
+    "satellizer": "^0.14.1",
+    "font-awesome": "^4.6.3"
   }
 }
