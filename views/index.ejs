@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/satellizer/satellizer.min.js"></script>
+
+  <script src="/js/module.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/services.js"></script>
+
+</head>
+<body ng-app='myApp' ng-controller='mainCtrl'>
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><%= title %></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a ui-sref='home'>Home</a></li>
+          <li ng-if='!isAuthenticated()'><a ui-sref='login'>Login/Register</a></li>
+          <li ng-if='isAuthenticated()'><a ui-sref='profile'>My Profile</a></li>
+          <li ng-if='isAuthenticated()'><a ui-sref='users'>Users</a></li>
+          <li ng-if='isAuthenticated()'><a ng-click='logOut()'>Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  <div class="container">
+    {{isAuthenticated}}
+    <div ui-view></div>
+
+
+  </div>
+</body>
+</html>

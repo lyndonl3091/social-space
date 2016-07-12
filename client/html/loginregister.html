@@ -1,0 +1,40 @@
+<div class="container">
+<h1>Welcome To Social Login</h1>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form ng-submit="register()">
+          <div class="form-group">
+            <label class="control-label" for="focusedInput">New users:</label>
+            <input class="form-control" id="focusedInput" type="email" placeholder="Email" ng-model='newUser.email'><br>
+            <input class="form-control" id="focusedInput" type="text" placeholder="Display Name" ng-model='newUser.displayName'><br>
+            <label class="control-label" for="focusedInput"></label>
+            <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='newUser.password'>
+            <label class="control-label" for="focusedInput"></label>
+            <input class="form-control" id="focusedInput" type="password" placeholder="Confirm Password" ng-model='newUser.password2'>
+          </div>
+
+          <button type="button" class="btn btn-default" ng-click="removeProperty()">Cancel</button>
+          <button class="btn btn-success">Register</button>
+
+
+        </form>
+    </div>
+
+    <div class="col-md-6">
+      <form ng-submit="userLogin()">
+       <div class="form-group">
+         <label class="control-label" for="focusedInput">Existing:</label>
+         <input class="form-control" id="focusedInput" type="email" placeholder="Email" ng-model='user.email'><br>
+         <label class="control-label" for="focusedInput"></label>
+         <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='user.password'>
+       </div>
+     <button type="button" class="btn btn-default" ng-click="removeProperty()">Cancel</button>
+     <button class="btn btn-success">Login</button>
+
+       </form>
+    </div>
+    <button class="btn btn-primary" ng-click='authenticate("facebook")'>LogIn with Facebook</button>
+    <button class="btn btn-primary" ng-click='authenticate("instagram")'>LogIn with Instagram</button>
+  </div>
+</div>

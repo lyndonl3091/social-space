@@ -1,0 +1,11 @@
+<form role="form" ng-submit='updateProfile()'>
+    <div class="form-group">
+      <label >Email:</label>
+      <input type="email" class="form-control"  placeholder="Enter email" ng-model='user.email'>
+      <label >Display Name:</label>
+      <input type="text" class="form-control" placeholder="Enter Display Name" ng-model='user.displayName'>
+      <label for="email">Profile Picture</label>
+      <input type="text" class="form-control" placeholder="Photo URL" ng-model='user.profileImage'>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
