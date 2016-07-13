@@ -28,15 +28,19 @@ let paths = {
   favicon:  {
     input: './client/favicon.ico',
     output: './public'
+  },
+  ttf: {
+    input: './client/css/**/*.ttf',
+    output: 'public/css'
   }
 };
 
 
 gulp.task('default', ['build', 'watch', 'serve']);
 
-gulp.task('build', ['favicon', 'html', 'css', 'js']);
+gulp.task('build', ['favicon', 'html', 'css', 'js', 'ttf']);
 
-gulp.task('watch', ['watch.html', 'watch.css', 'watch.js']);
+gulp.task('watch', ['watch.html', 'watch.css', 'watch.js', 'watch.ttf']);
 
 gulp.task('serve', function() {
   nodemon({
@@ -100,4 +104,19 @@ gulp.task('clean:css', function() {
 
 gulp.task('watch.css', function() {
   gulp.watch(paths.css.input, ['css'])
+});
+
+////////////// TTF /////////////////
+gulp.task('ttf',['clean:ttf'], function() {
+  return gulp.src(paths.ttf.input)
+  .pipe(plumber())
+  .pipe(gulp.dest(paths.ttf.output));
+});
+
+gulp.task('clean:ttf', function() {
+  return del([paths.ttf.output]);
+});
+
+gulp.task('watch.ttf', function() {
+  gulp.watch(paths.ttf.input, ['ttf'])
 });
