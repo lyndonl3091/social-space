@@ -1,13 +1,18 @@
 
 @font-face{
   font-family: "EasyOpenFace";
-  src: url('./EasyOpenFace.ttf');
+  src: url('../ttf/EasyOpenFace.ttf');
 }
 
-body {
-  font-family: "EasyOpenFace";
-}
+$font-easy : "EasyOpenFace";
+
 
 #home {
   text-align: center;
+  font-family: $font-easy;
+  font-size: 50px;
+}
+
+.welcome {
+  font-family: $font-easy;
 }

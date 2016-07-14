@@ -30,17 +30,17 @@ let paths = {
     output: './public'
   },
   ttf: {
-    input: './client/css/**/*.ttf',
-    output: 'public/css'
+    input: './client/ttf/**/*.ttf',
+    output: 'public/ttf'
   }
 };
 
 
 gulp.task('default', ['build', 'watch', 'serve']);
 
-gulp.task('build', ['favicon', 'html', 'css', 'js', 'ttf']);
+gulp.task('build', ['favicon', 'ttf',  'html', 'css', 'js']);
 
-gulp.task('watch', ['watch.html', 'watch.css', 'watch.js', 'watch.ttf']);
+gulp.task('watch', ['watch.html', 'watch.css', 'watch.js']);
 
 gulp.task('serve', function() {
   nodemon({
@@ -107,16 +107,7 @@ gulp.task('watch.css', function() {
 });
 
 ////////////// TTF /////////////////
-gulp.task('ttf',['clean:ttf'], function() {
+gulp.task('ttf', function() {
   return gulp.src(paths.ttf.input)
-  .pipe(plumber())
   .pipe(gulp.dest(paths.ttf.output));
-});
-
-gulp.task('clean:ttf', function() {
-  return del([paths.ttf.output]);
-});
-
-gulp.task('watch.ttf', function() {
-  gulp.watch(paths.ttf.input, ['ttf'])
 });
