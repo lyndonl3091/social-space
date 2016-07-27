@@ -52,7 +52,7 @@ app.use('/api', require('./routes/api'));
 /////////////////
 
 app.get('/', (req,res) => {
-    res.render('index', {title: 'Social Login'});
+    res.render('index', {title: 'Social Space'});
 });
 
 // catch 404 and forward to error handler

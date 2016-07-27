@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const JWT_SECRET = process.env.JWT_SECRET;
 
 let messageSchema = new mongoose.Schema ({
+  user: String,
   message: String,
   postedAt: {type: Date, default: Date.now()}
 })

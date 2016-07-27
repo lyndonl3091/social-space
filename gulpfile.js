@@ -32,13 +32,17 @@ let paths = {
   ttf: {
     input: './client/ttf/**/*.ttf',
     output: 'public/ttf'
+  },
+  images:  {
+    input: './client/images/**/*.jpg',
+    output: './public/images'
   }
 };
 
 
 gulp.task('default', ['build', 'watch', 'serve']);
 
-gulp.task('build', ['favicon', 'ttf',  'html', 'css', 'js']);
+gulp.task('build', ['favicon', 'images', 'ttf',  'html', 'css', 'js']);
 
 gulp.task('watch', ['watch.html', 'watch.css', 'watch.js']);
 
@@ -51,6 +55,11 @@ gulp.task('serve', function() {
 gulp.task('favicon', function() {
   return gulp.src(paths.favicon.input)
     .pipe(gulp.dest(paths.favicon.output));
+})
+
+gulp.task('images', function() {
+  return gulp.src(paths.images.input)
+    .pipe(gulp.dest(paths.images.output));
 })
 
 //////////////// HTML ////////////////////
