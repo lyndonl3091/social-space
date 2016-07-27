@@ -24,4 +24,6 @@ app.service('User', function($http, $q) {
   this.getById = id => $http.get(`/api/users/${id}`);
 
   this.updateProfile = (id, userObj) => $http.put(`/api/users/${id}`, userObj)
+
+  this.postMessage = (id, messageObj) => $http.put(`/api/users/${id}`, messageObj)
 })

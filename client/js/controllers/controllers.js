@@ -101,12 +101,18 @@ app.controller('userShowCtrl', function($scope,$state, $stateParams, User) {
 
     User.getById($stateParams.userId)
     .then(res => {
-      console.log('findbyid res', res.data);
       $scope.user = res.data;
     })
     .catch (err => {
       console.error('err:', err);
     })
+
+    $scope.sendMessage = () => {
+      User.postMessage($stateParams )
+      .then(res => {
+        console.log('res', res.data);
+      })
+    }
 
 
 })
